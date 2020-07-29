@@ -1,0 +1,1172 @@
+@import url(reset.css);
+
+body{
+	font-family: Arial,"微軟正黑體";
+	font-size: 16px;
+	color: #fff;
+	background-image: url(../img/escheresque_ste.png);
+	line-height: 1.7;
+}
+
+/**{outline: 2px solid red;}*/
+
+img{
+	display: block;
+	width: 100%;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;
+	/**/
+}
+
+h1{
+	font-size: 48px;
+	color: #fff;
+	font-weight: bold;
+}
+
+h2{
+	font-size: 24px;
+	color: #f67676;
+	
+	margin: 25px 0;
+	font-weight: bold;
+}
+
+h3{text-align: center;}
+
+.section{
+	width: 100%;
+	margin: 50px 0;
+}
+
+.item{display: flex;}
+
+.banner{position: relative;}
+
+.banner h1{
+	position: absolute;
+	bottom: -45px;
+	left: 10%;
+}
+
+.for_md{display: none;}
+
+.here{
+	box-shadow: 
+	0 0 0 1px #fff;
+	border-radius: 3px;	
+}
+
+
+@media screen and (min-width: 768px){
+	h1{font-size: 60px;}
+
+	.for_md{display: block;}
+
+	.phone{display: none;}
+
+	.section{
+		width: 100%;
+		margin: 100px 0;
+	}
+}
+
+@keyframes hover {
+      0%{box-shadow: 0 0 0 0px rgba(255,255,255,1);
+		border-radius: 3px;
+      }
+    100%{box-shadow: 0 0 4px 6px rgba(255,255,255,0);
+		border-radius: 3px;
+    }
+}
+
+/*===天長條===*/
+.header{
+	width: 100%;
+	background-image: linear-gradient(180deg,#000 0%, rgba(0,0,0,0) 90%);
+	position: fixed;
+	z-index: 2;
+}
+
+#logo1{
+	width: 58px;
+	height: 74px;
+}
+#logo2{
+	width: 120px;
+	height: 25px;
+}
+
+.header .item{
+	align-items: center;
+}
+
+
+@media screen and (min-width: 768px){
+	.header ul li a{
+		padding: 5px 10px;
+	}
+
+	.header ul li a:hover{
+		animation: hover .8s;
+	}
+
+	.header ul{
+		height: 74px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+
+/*===漢堡===*/
+.menu-btn{
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	top: 20px;
+	right: 15px;
+	z-index: 999;
+}
+
+.hamburger nav{
+	text-align: center;
+	position: absolute;
+	top: -1000px;
+	left: 0;
+	right: 0;
+}
+
+.hamburger a{
+	font-size: 26px;
+}
+
+#menu-control{
+	position: fixed;
+	top: -50px;
+	right: -50px;
+}
+
+#nav0{
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,.6);
+}
+
+
+#menu-control:checked ~ #nav0{
+	animation: burger 1s both;
+}
+#menu-control:checked ~ #nav1{
+	animation: burger_a 1.6s both;
+}
+#menu-control:checked ~ #nav2{
+	animation: burger_b 1.4s both;
+}
+#menu-control:checked ~ #nav3{
+	animation: burger_c 1.2s both;
+}
+#menu-control:checked ~ #nav4{
+	animation: burger_d 1s both;
+}
+#menu-control:checked ~ #nav5{
+	animation: burger_e .8s both;
+}
+#menu-control:checked ~ #nav6{
+	animation: burger_f .6s both;
+}
+
+@keyframes burger{
+	0%{top: -1000px;}
+	100%{top: 0px;}
+}
+@keyframes burger_a{
+	0%{top: -1000px;}
+	/* 100%{top: 100px;} */
+	100%{top: 13vh;}
+}
+@keyframes burger_b{
+	0%{top: -1000px;}
+	/* 100%{top: 170px;} */
+	100%{top: 26vh;}
+}
+@keyframes burger_c{
+	0%{top: -1000px;}
+	/* 100%{top: 240px;} */
+	100%{top: 39vh;}
+}
+@keyframes burger_d{
+	0%{top: -1000px;}
+	/* 100%{top: 310px;} */
+	100%{top: 52vh;}
+}
+@keyframes burger_e{
+	0%{top: -1000px;}
+	/* 100%{top: 380px;} */
+	100%{top: 65vh;}
+}
+@keyframes burger_f{
+	0%{top: -1000px;}
+	/* 100%{top: 450px;} */
+	100%{top: 78vh;}
+}
+
+/*---漢堡bar---*/
+.bar{
+	width:40px;
+    height:3px;
+    background-color:#fff;
+    display:block;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+#bar1{
+	position: absolute;
+	top: 20px;
+	right: 15px;
+}
+#bar2{
+	position: absolute;
+	top: 38px;
+	right: 15px;
+}
+#bar3{
+	position: absolute;
+	top: 56px;
+	right: 15px;
+}
+
+#menu-control:checked ~ #bar1{
+	animation: span_a .8s 1.3s both;
+}
+#menu-control:checked ~ #bar2{
+	animation: span_b 1.5s .2s both;
+}
+#menu-control:checked ~ #bar3{
+	animation: span_c .8s .9s both;
+}
+
+@keyframes span_a{
+    0%{transform: translate(0,0);}
+    60%{transform: rotate(-110deg) translate(-7px, -7px);}
+    100%{transform: rotate(-45deg) translate(-20px, 10px);}
+}
+@keyframes span_b{
+    0%{transform: translate(0,0) scale(1);}
+    20%{width:3px;border-radius: 50%;transform: translate(0,0) scale(1);}
+    40%{width:3px;border-radius: 50%;transform: translate(0,0) scale(1);}
+    50%{width:3px;border-radius: 50%;transform: translate(0,18px) scale(1);}
+    80%{width:3px;border-radius: 50%;transform: translate(0,-16px) scale(1);}
+    100%{width:3px;border-radius: 50%;transform: translate(0,100px) scale(0);}
+}
+@keyframes span_c{
+    0%{transform: translate(0,0);}
+    60%{transform: rotate(80deg) translate(-7px, -7px);}
+    100%{transform: rotate(45deg) translate(-16px, -10px);}
+}
+
+/*===頁尾===*/
+.footer{
+	width: 100%;
+	background-color: rgba(1,1,1,.8);
+	text-align: center;
+}
+
+.footer p{
+	margin: 25px 0; 
+	text-align: center;
+	color: #aaa;
+}
+
+.footer a{
+	display: block;
+	margin: 25px 0;
+}
+
+.share a{
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: auto;
+}
+
+#facebook{
+	background-image: url(../img/footer.png);
+}
+
+#twitter{
+	background-image: url(../img/footer.png);
+	background-position: -40px 0;
+}
+
+#gmail{
+	background-image: url(../img/footer.png);
+	background-position: -80px 0;
+}
+
+/*==============================首頁開始==============================*/
+
+/*===大圖===*/
+
+
+/*===5道頂級牛排===*/
+.fivesteak .item{
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.fivesteak .item input{
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	margin: 10px 0;
+	outline: none;
+
+	cursor: pointer;
+}
+
+.fivesteak .item input:focus{
+	box-shadow: 
+	0 0 0 1px #fff;
+	border-radius: 3px;	
+}
+
+
+
+
+@media screen and (min-width: 768px){
+	.fivesteak p{
+		/* padding-left: 50px; */
+		padding: 0 0 25px 50px;
+	}
+
+	/*.fivesteak .item input:focus{
+		font-size: 24px;
+		font-weight: bold;
+		padding: 0 10px;
+		border-left: 2px solid #f67676;
+		border-right: 2px solid #f67676;
+	}*/
+
+	.fivesteak .item input{
+		padding: 5px 10px;
+	}
+
+	.fivesteak .item input:hover{
+		animation: hover .8s;
+	}
+}
+
+/*===海鮮及精選===*/
+.seafood{}
+
+
+@media screen and (min-width: 768px){
+	.seafood p{
+		padding-left: 50px;
+	}
+
+	.seafoodimg{
+		height: 500px;
+		background-image: url(../img/seafood.png);
+		background-position: center;
+		background-attachment: fixed;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+
+		position: relative;
+	}
+
+	.seafoodcotent{
+		width: 50%;
+		height: 50%;
+		position: absolute;
+		top: 0;	
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+		background-color: rgba(0,0,0,.5);
+		border-radius: 5px;
+		box-shadow: 10px 10px 10px rgba(0,0,0,.8);	
+	}
+
+	.seafoodcotent h2{
+		padding-left: 25px;
+	}
+
+	.seafoodcotent p{
+		padding-left: 75px;
+		padding-right: 75px;
+	}
+}
+
+
+/*===首頁_最新消息===*/
+.indexnews .item{
+	/*flex-direction: column;*/
+	margin-bottom: 50px;
+}
+
+.indexnews p{
+	padding-top: 10px;
+}
+
+
+@media screen and (min-width: 768px){
+	.indexnews img{
+		width: 50%;
+	}
+
+	.indexnews .item{
+		position: relative;
+		margin-bottom: 50px;
+	}
+	
+	.indexnews p{
+		display: block;
+		width: 50%;
+		height: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		padding-top: 50px;
+		padding-left: 40%;
+
+		text-shadow: -1px -1px 2px #000;
+	}
+
+	.indexnews2{
+		margin-left: 10%;
+	}
+
+	.indexnews3{
+		margin-left: 20%;
+	}
+
+	
+}
+
+
+/*===首頁_店家資訊===*/
+@media screen and (min-width: 768px){
+	.indexstore img{
+		transform: scale(.9);
+		margin-bottom: 10px;
+	}
+
+	.indexstore img:hover{
+		transform: scale(1.1);
+		transition: .5s;
+		box-shadow: 7px 7px 5px rgba(0,0,0,.5);
+	}
+}
+
+
+.indexstore .item{
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+.indexstore p{
+	text-align: center;
+}
+
+/*==============================首頁結束==============================*/
+
+/*==============================菜單開始==============================*/
+
+/*===菜單===*/
+#menu .section span{
+	display: block;
+	font-size: 20px;
+	margin-top: 25px;
+}
+@media screen and (min-width: 768px){
+	#menu .section p{
+		padding-left: 50px;
+	}
+}
+
+
+/*===頂級牛排===*/
+.menusteak .item{
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.menucenter{
+	display: none;
+}
+
+@media screen and (min-width: 768px){
+	.menucenter{
+		display: block;
+	}
+
+	.menucenter img{
+		width: 10px;
+		margin: auto;
+		margin-top: 100px;
+	}
+
+	.menusteak .item{
+		margin-bottom: 100px;
+	}
+
+	.menuright{
+		margin-top: 200px;
+	}
+}
+
+
+/*===其他主餐===*/
+.othermenu{
+	overflow: hidden;
+}
+
+.othermenu .item{
+	display: block;
+}
+
+
+@media screen and (min-width: 768px){
+	.othermenu .item{
+		display: flex;
+		flex-direction: row-reverse;
+	}
+}
+
+/*===開胃菜&湯品===*/
+.soup{}
+
+
+/*===經典雞尾酒===*/
+.drink{}
+
+
+/*==============================菜單結束==============================*/
+
+
+/*============================最新消息開始============================*/
+
+/*===最新消息===*/
+.news{
+	text-align: center;
+	overflow: hidden;
+}
+
+.news span{
+	margin: 50px 0;
+}
+
+.news .item{
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.news .title{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+@media screen and (min-width: 768px){
+	.title a{
+		padding: 5px 10px;
+	}
+
+	.title a:hover{
+		animation: hover .8s both;
+	}
+
+
+}
+
+/*===頁碼===*/
+.page{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.page a{
+	margin: 0 15px;
+}
+
+@media screen and (min-width: 768px){
+	.page a:hover{
+		color: #f67676;
+	}
+}
+
+/*============================最新消息結束============================*/
+
+
+/*============================店家資訊開始============================*/
+
+/*===店家資訊===*/
+.store .item{
+	justify-content: space-around;
+	align-items: center;
+}
+
+.store span{
+	margin: 50px 0;
+}
+
+@media screen and (min-width: 768px){
+	.store a{
+		padding: 5px 10px;
+	}
+	
+	.store a:hover{
+		animation: hover .8s;
+	}
+}
+
+
+/*店家資訊內容*/
+.storecontent div{
+	margin-bottom: 50px;
+}
+
+.storecontent span{
+	font-size: 20px;
+}
+
+.storecontent h2{
+	text-align: center;
+}
+
+.storecontent span:after{
+	content: '';
+    width: 22.5px;
+    height: 22.5px;
+    margin: 0 0 5px 5px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(../img/store_icon.png);
+    background-size: auto 22.5px;
+}
+
+.storecontent div:nth-of-type(1) span:after{
+	background-position: -22.5px center;
+}
+
+.storecontent div:nth-of-type(3) span:after{
+	background-position: -45px center; 
+}
+.storecontent div:nth-of-type(4) span:after{
+	background-position: -90px center; 
+}
+
+.storecontent p{
+	padding-top: 5px;
+	padding-left: 25px;
+}
+
+@media screen and (min-width: 768px){
+	.storecontent p{
+		padding-top: 5px;
+		padding-left: 50px;
+	}
+}
+
+
+/*============================店家資訊結束============================*/
+
+
+
+/*============================關於我們開始============================*/
+
+/*===里程碑===*/
+.miles{
+	display: none;
+	position: relative;
+}
+
+.mile ul{
+	display: flex;
+	flex-direction: row;
+}
+
+.mile li{
+	width: 30px;
+	height: 30px;
+	background-color: #f67676;
+	border-radius: 50%;
+	margin: auto;
+	z-index: 1;
+}
+
+#mile1{
+	width: 40px;
+	height: 40px;
+	animation: mile_ani 2s 1.5s both;}
+
+#mile2{animation: mile_ani 2s 2s both;}
+#mile3{animation: mile_ani 2s 2.5s both;}
+#mile4{animation: mile_ani 2s 3s both;}
+
+#mile5{
+	width: 0;
+	height: 0;
+	border-radius: 0;
+	background-color: transparent;
+	border-left: 10px solid #fff;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	animation: arrow_ani 2s 4.5s both;
+}
+
+#mile6{
+	background-color: transparent;
+}
+
+#line{
+	width: 66.666666%;
+	border: 2px solid #fff;
+	position: absolute;
+	top: 19px;
+	left: 8.333333%;
+
+	animation: line_ani 3s 2s both;
+}
+
+.mile span{
+	text-align: center;
+}
+
+@media screen and (min-width: 768px){
+	.miles{
+		display: block;
+	}
+}
+
+@keyframes mile_ani{
+	0%{background-color: transparent;}
+	100%{background-color: #f67676;}
+}
+
+@keyframes arrow_ani{
+	0%{border-left: 10px solid transparent;}
+	100%{border-left: 10px solid #fff;}
+}
+
+@keyframes line_ani{
+	0%{width: 0%;border: 2px solid transparent;}
+	100%{width: 66.666666%;border: 2px solid #fff;}
+}
+
+
+/*===關於我們===*/
+.about{
+	overflow: hidden;
+}
+
+.about:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.about .item{
+	flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 768px){
+	#aboutleft{
+		display: block;
+		margin-left: -15px;
+		padding-top: 100px;
+		animation: roolleft 5s infinite alternate;
+	}
+	#aboutright{
+		display: block;
+		margin-left: 15px;
+		padding-bottom: 100px;
+		animation: roolright 5s infinite alternate-reverse;
+	}
+
+	.about .item{
+		display: block;
+	}
+
+	.about p{
+		margin: 25px 0;
+	}
+
+	@keyframes roolleft{
+		0%{transform: translateY(-20px);}
+		100%{transform: translateY(0);}
+	}
+	@keyframes roolright{
+		0%{transform: translateX(20px);}
+		100%{transform: translateX(0);}
+	}
+
+	.about{
+		position: relative;
+	}
+
+	#roolhead{
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 15%;
+		left: 0%;
+	}
+
+
+/*---猴子旋轉頭---*/
+	.headrun{
+		animation: runhead 3s linear;
+		z-index: -1;
+	}
+
+	
+	@keyframes runhead{
+		  0%{
+		  	top: 15%;
+		  	left: 0%;
+		  	transform: rotate(0deg);
+		  }
+		 25%{
+		 	top: 20%;
+		 	left: 40%;
+		 	transform: rotate(90deg);
+		 }
+
+		 50%{
+		 	top: 50%;
+		 	left: 50%;
+		 }
+		 75%{
+		 	top: 85%;
+		 	left: 60%;
+		 	transform: rotate(180deg);
+		 }
+		100%{
+			top: 85%;
+			left: 100%;
+			transform: rotate(360deg);
+		}
+	}
+
+}
+
+/*===經營理念===*/
+.idea{
+	overflow: hidden;
+}
+
+.idea .item{
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+.idea span{
+	padding: 15px;
+}
+
+/*============================關於我們結束============================*/
+
+
+/*============================產品履歷開始============================*/
+
+
+/*===安心===*/
+
+
+.safe .container{
+	position: relative;
+}
+
+.safe span{
+	font-size: 20px;
+	color: #f67676;
+	font-weight: bold;
+}
+
+@media screen and (min-width: 768px){
+	#safeimg{
+		width: 300px;
+		position: absolute;
+		bottom: 0;
+		right: 10%;
+	}
+
+	.safe{
+		background-color: rgba(0,0,0,.8);
+	}
+
+	.safe .container{
+		height: 150px;
+	}
+
+	.safe span{
+	font-size: 48px;
+	color: #f67676;
+	position: absolute;
+	top: -40px;
+	left: 0;
+}
+
+	.safe p:nth-of-type(1){
+		font-size: 24px;
+		margin-top: 50px;
+	}
+
+	.safe p:nth-of-type(2){
+		padding-left: 50px;
+		margin-top: 25px;
+	}
+}
+
+/*===蔬菜===*/
+@media screen and (min-width: 768px){
+	.vegetables{
+		position: relative;
+	}
+
+	.vegetables p{
+		padding-left: 50px;
+	}
+
+	.vegetablesimg{
+		height: 500px;
+		background-image: url(../img/vegetables.png);
+		background-position: center;
+		background-attachment: fixed;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+
+		position: relative;
+	}
+
+	.vegetablescontent{
+		width: 50%;
+		height: 50%;
+		position: absolute;
+		top: 0;	
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+		background-color: rgba(0,0,0,.5);
+		border-radius: 5px;
+		box-shadow: 10px 10px 10px rgba(0,0,0,.8);	
+	}
+
+	.vegetablesimg h2{
+		padding-left: 25px;
+	}
+
+	.vegetablesimg p{
+		padding-left: 75px;
+		padding-right: 75px;
+	}
+
+	.carrot{
+		width: 20%;
+		position: absolute;
+		bottom: -75px;
+		left: 10%;
+	}
+}
+/*===溯源餐廳===*/
+.traceability span{
+	display: block;
+	font-size: 20px;
+	margin: 25px 0;
+	text-align: center;
+}
+
+@media screen and (min-width: 768px){
+	.traceability .container div{
+	position: relative;
+}
+
+.traceability .container div p{
+	background-color: rgba(0,0,0,.6);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 300px 50px 0;
+	opacity: 0;
+	transition: opacity .8s;
+
+}
+
+.traceability .container p:hover{
+	opacity: 1;
+}
+
+}
+
+/*============================產品履歷結束============================*/
+
+
+/*============================線上訂位開始============================*/
+
+
+/*===訂位文案===*/
+.bookingcontent .item{
+	flex-direction: column;
+	padding: 15px;
+}
+
+.bookingcontent .container{
+	background-color: rgba(0,0,0,.5);
+}
+
+.bookingcontent span{
+	font-size: 20px;
+	display: block;
+	margin-top: 25px;
+}
+
+
+
+
+@media screen and (min-width: 768px){
+	.bookingcontent p{
+		padding-left: 50px;
+	}
+}
+
+/*===訂位表單===*/
+.booking h2{
+	text-align: center;
+}
+
+.booking .item{
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+.booking span{
+	font-size: 20px;
+}
+
+
+.booking input{
+	width: 150px;
+	height: 30px;
+	border-radius: 2px;
+
+	/**/
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+.booking select{
+	width: 150px;
+	height: 30px;
+	border-radius: 2px;
+
+	/**/
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+.booking textarea{
+	width: 150px;
+	height: 50px;
+	border-radius: 3px;
+
+	/**/
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+.booking button{
+	font-family: '微軟正黑體';
+	width: 80px;
+	height: 40px;
+	margin: auto;
+	margin-top: 25px;
+	background-color: #f67676;
+	box-shadow: 3px 3px 3px #000;
+	cursor: pointer;
+
+	/**/
+	border: none;
+	outline: none;
+	border-radius: 3px;
+}
+
+
+.booking button:hover{
+	animation: rotate .7s ease-in-out both;
+}
+
+
+.booking .container{
+	background-color: rgba(0,0,0,.5);
+	padding: 15px 0 25px;
+}
+
+
+@media screen and (min-width: 768px){
+	
+	.booking input{
+		margin-left: 50px;
+	}
+
+	.booking select{
+		margin-left: 50px;
+	}
+
+	.booking textarea{
+		margin-left: 50px;
+	}
+	
+}
+
+
+/*---buttonani---*/
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(3deg);
+    }
+    50%{
+        transform: rotate(-3deg);
+    }
+    75%{
+        transform: rotate(1deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+/*============================線上訂位結束============================*/
+
+
+
+
+
