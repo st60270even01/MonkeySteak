@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>首頁</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/col.css">
+	<script type="text/javascript" src="js/javascript.js"></script>
+
+	<!-- AOS -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+	<!-- 天長條 -->
+	<div class="header">
+
+		<div class="container">
+			<div class="col-6">
+				<a href="index.html" class="item">
+					<img src="img/logo_1.png" alt="" id="logo1">
+					<img src="img/logo_2.png" alt="" id="logo2">
+				</a>
+			</div>
+			<div class="col-6 for_md">
+				<ul>
+					<li><a href="booking.html">線上訂位</a></li>
+					<li><a href="aboutus.html">關於我們</a></li>
+					<li><a href="menu.html">精選菜單</a></li>
+					<li><a href="resume.html">產品履歷</a></li>
+					<li><a href="news.html">最新消息</a></li>
+					<li><a href="store.html">店家資訊</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 漢堡 -->
+		<div class="hamburger phone">
+			<input type="checkbox" id="menu-control">	
+			<label for="menu-control" class="menu-btn"></label>
+			<span class="bar" id="bar1"></span>
+			<span class="bar" id="bar2"></span>
+			<span class="bar" id="bar3"></span>	
+			<nav id="nav0"></nav>
+			<nav id="nav1"><a href="booking.html">線上訂位</a></nav>
+			<nav id="nav2"><a href="aboutus.html">關於我們</a></nav>
+			<nav id="nav3"><a href="menu.html">精選菜單</a></nav>
+			<nav id="nav4"><a href="resume.html">產品履歷</a></nav>
+			<nav id="nav5"><a href="news.html">最新消息</a></nav>
+			<nav id="nav6"><a href="store.html">店家資訊</a></nav>
+		</div>
+
+	</div>
+
+
+	<!-- 大圖 -->
+	<div class="banner">
+		<!-- 5:2 -->
+		<img src="img/indexbanner.png" class="for_md">
+		<!-- 5:4 -->
+		<img src="img/indexbanner_2.png" class="phone">
+		<h1>Home</h1>
+	</div>
+
+	<!-- 5道頂級牛排 -->
+	<div class="section fivesteak">
+		<div class="container">
+			<div class="col-12">
+				<h2>5道頂級牛排</h2>
+				<p>每份牛排烤至指定的完美熟度，再置放在加熱至華氏５００度的保溫瓷盤，滋滋作響上桌，只以胡椒與鹽調味，不需任何醬汁就能盡嘗頂級牛排的美味。</p>
+			</div>
+
+			<div class="col-12 col-md-6">
+				<!-- 7:4 -->
+				<img src="img/steak3.png" id="demo1">
+			</div>
+			<div class="col-12 col-md-6 item">
+				<input type="button" onclick="myFunction1()" type="${1:text}" value="FILET 菲力牛排"></input>
+				<input type="button" onclick="myFunction2()" type="${1:text}" value="COWBOY RIBEYE 帶骨肋眼牛排"></input>
+				<input type="button" onclick="myFunction3()" type="${1:text}" value="NEW YORK STRIP 紐約牛排"></input>
+				<input type="button" onclick="myFunction4()" type="${1:text}" value="RIBEYE 肋眼牛排"></input>
+				<input type="button" onclick="myFunction5()" type="${1:text}" value="T-BONE 丁骨牛排"></input>
+			</div>
+		</div>
+	</div>
+
+	<!-- 海鮮及精選 -->
+
+	<div class="section seafood">		
+		<!-- 7:3 -->
+		<div class="seafoodimg">
+			<div class="container">
+				<div class="col-12">
+					<div class="seafoodcotent" data-aos="fade-up">
+						<h2>海鮮及精選</h2>
+						<p>除了提供美國Prime頂級牛肉，也提供精選海鮮及其他肉類可供選擇，讓消費者享受完整的用餐體驗。</p>
+					</div>
+				</div>
+			</div>
+			<img src="img/seafood.png" class="phone">
+		</div>
+	</div>
+
+
+
+	<!-- 最新消息 -->
+	<div class="section indexnews">
+		<div class="container">
+			<div class="col-12">
+				<h2>最新消息</h2>
+			</div>
+
+
+			<div class="col-12 col-md-8 item indexnews1">
+				<a href="#">
+					<img src="img/n6.png" data-aos="fade-right">
+					<p>畢業不是句點，而是下次聚點的開始，用美味餐點，一起奔放青春，迎向我們的夢想！</p>
+				</a>
+			</div>
+
+			<div class="col-12 col-md-8 item indexnews2">
+				<a href="#">
+					<img src="img/n2.png" data-aos="fade-right">
+					<p>當月壽星於MONKEY餐廳消費用餐四人同行，可享壽星本人免費!</p>
+				</a>
+			</div>
+
+			<div class="col-12 col-md-8 item indexnews3">
+				<!-- 7:4 -->
+				<a href="#">
+					<img src="img/n4.png" data-aos="fade-right">
+					<p>吃MONKEY只要使用Apple Card，單筆滿千現折300元，滿2000現折$600元</p>
+				</a>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<!-- 店家資訊 -->
+	<div class="section indexstore">
+		<div class="container">
+			<div class="col-12">
+				<h2>店家資訊</h2>
+			</div>
+
+			<div class="col-6 col-md-3 item" data-aos="fade-up">
+				<h3>新北店</h3>
+				<!-- 7:4 -->
+				<img src="img/s4.png">
+				<p>新北市板橋區<br>中山路一段161號<br>(02)2960-3456</p>
+			</div>
+			<div class="col-6 col-md-3 item" data-aos="fade-up">
+				<h3>桃園店</h3>
+				<!-- 7:4 -->
+				<img src="img/s2.png">
+				<p>桃園市桃園區<br>縣府路1號<br>(03)2189-000</p>
+			</div>
+			<div class="col-6 col-md-3 item" data-aos="fade-up">
+				<h3>台中店</h3>
+				<!-- 7:4 -->
+				<img src="img/s3.png">
+				<p>臺中市西屯區<br>臺灣大道三段99號<br>(04)2228-9111</p>
+			</div>
+			<div class="col-6 col-md-3 item" data-aos="fade-up">
+				<h3>高雄店</h3>
+				<!-- 7:4 -->
+				<img src="img/s4.png">
+				<p>高雄市苓雅區<br>四維三路2號<br>(07)336-8333</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 頁尾 -->
+	<div class="footer">
+		<div class="container">
+			<div class="col-12">
+				<div class="col-12 col-md-3">
+					<a href="#">聯絡我們</a>
+				</div>
+				<div class="col-12 col-md-3">
+					<a href="#">加盟服務</a>
+				</div>
+				<div class="col-12 col-md-3">
+					<a href="#">人才招募</a>
+				</div>
+				<div class="col-12 col-md-3">
+					<a href="#">常見問題</a>
+				</div>
+			</div>
+			<div class="col-12 share">
+				<div class="col-4">
+					<a href="#" id="facebook"></a>
+				</div>
+				<div class="col-4">
+					<a href="#" id="twitter"></a>
+				</div>
+				<div class="col-4">
+					<a href="#" id="gmail"></a>
+				</div>
+			</div>
+			<div class="col-12">
+				<p>Copyright © Monkey餐飲集團 All Rights Reserved.</p>
+			</div>
+		</div>
+	</div>
+
+	<script>AOS.init();</script>
+	
+</body>
+
+
+</html>

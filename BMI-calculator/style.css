@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wrap {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    background-color: rgba(0, 0, 0, .9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.text {
+    margin: 0 5%;
+    color: rgb(235, 193, 86);
+}
+
+.text h1 {
+    font-size: 2vh;
+    text-align: left;
+}
+
+.text input {
+    border: 3px solid rgb(235, 193, 86);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 250px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.button a {
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: rgb(235, 193, 86);
+    font-weight: 800;
+    border-radius: 54%;
+    text-decoration: none;
+    color: rgba(0, 0, 0, .9);
+    transition: 1s;
+
+}
+
+.button a:hover {
+    background-color: white;
+    color: gold;
+}
+
+.middle {
+    background-color: whitesmoke;
+}
+
+.middle li {
+    width: 100%;
+    height: 60px;
+    background-color: gainsboro;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.green {
+    border-left: 10px solid rgb(148, 248, 65);
+}
+
+.blue {
+    border-left: 10px solid rgb(33, 207, 250);
+}
+
+.liorange {
+    border-left: 10px solid rgb(251, 207, 126);
+}
+
+.red {
+    border-left: 10px solid red;
+}
+
+.middle em {
+    font-style: unset;
+    font-size: 20px;
+
+}
+
+.middle span {
+    font-size: 10px;
+    display: flex;
+    width: 130px;
+    justify-content: space-evenly;
+
+}
+
+.middle {
+    padding: 50px;
+}
+
+.middle button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(235, 193, 86);
+    transition: 1s;
+    color: black;
+    font-weight: 800;
+}
+
+.middle button:hover {
+    background-color: white;
+    color: gold;
+}
+
+.delete{
+    margin: 10px 0 20px;
+}
+
+footer {
+    background-color: rgb(235, 193, 86);
+}
+
+footer img {
+    display: block;
+    width: 5%;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+}
