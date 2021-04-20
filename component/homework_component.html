@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>作業練習：元件變換</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="images/favicon.ico" rel="shortcut icon">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body class="bg-lighter">
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-12 post">
+        <!-- 練習開始 -->
+
+        <h3>component：Ajax 資料內容呈現</h3>
+        <div class="alert alert-secondary">
+          <ol class="mb-0">
+            <li>API 來源: <a
+                href="https://opendata.epa.gov.tw/Data/Contents/AQI/">https://opendata.epa.gov.tw/Data/Contents/AQI/</a>
+            </li>
+            <li>將資料內容透過 "元件" 呈現</li>
+            <li>製作城市過濾選項</li>
+            <li>將內層資料透過 emit 傳遞到外層 (作為另一個關注城市的呈現)</li>
+            <li>依據不同污染呈現不同色彩</li>
+            <li>透過 localStorage 儲存上次關注的城市</li>
+          </ol>
+        </div>
+
+        <div id="app">
+
+          <!-- 選擇城市 -->
+          <select name="" id="" class="form-control mb-3" v-model="selectedCity">
+            <option value="" disabled>--- 請選擇城市 ---</option>
+            <option :value="item" v-for="item in location">{{ item }}</option>
+          </select>
+
+          <div>
+            <h4>關注城市</h4>
+            <city-card v-for="(item,key) in storageCounty" :citydata="item" :key="key"
+              v-on:removestared="removeStaredCounty">
+              <template slot="star">
+                <i class="fas fa-star"></i>
+              </template>
+            </city-card>
+
+          </div>
+
+          <hr>
+
+          <city-card v-for="(item,key) in filterData" :citydata="item" :key="key" v-on:addnewstared="addStaredCounty">
+          </city-card>
+
+
+        </div>
+
+        <script type="text/x-template" id="cityCardTemplate">
+          <div class="card-columns">
+            <div class="card"
+            :class="{
+              'status-aqi2' : citydata.Status == '普通',
+              'status-aqi3' : citydata.Status == '對敏感族群不健康',
+              'status-aqi4' : citydata.Status == '對所有族群不健康',
+              'status-aqi5' : citydata.Status == '非常不健康',
+              'status-aqi6' : citydata.Status == '危害'
+            }">
+              <div class="card-header">{{ citydata.County }} - {{ citydata.SiteName }}
+                <a href="#" class="float-right" @click.prevent="staredData(citydata.SiteName)"><slot name="star"><i class="far fa-star"></i></slot></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li>AQI 指數: {{ citydata.AQI}}</li>
+                  <li>PM2.5: {{ citydata['PM2.5'] }}</li>
+                  <li>說明: {{ citydata.Status }}</li>
+                </ul>
+                {{ citydata.PublishTime }}
+              </div>
+            </div>
+          </div>
+        </script>
+
+        <script>
+          // API 來源
+          // https://opendata.epa.gov.tw/Data/Contents/AQI/
+
+          Vue.component('city-card', {
+            props: ['citydata'],
+            template: '#cityCardTemplate',
+            methods: {
+              staredData: function (siteName) {
+                this.$emit('addnewstared', siteName);
+                this.$emit('removestared', siteName);
+              },
+            },
+          })
+
+          var app = new Vue({
+            el: '#app',
+            data: {
+              data: [],
+              location: [],
+              stared: JSON.parse(localStorage.getItem('storageSiteName')) || [],
+              filter: '',
+              selectedCity: '',
+            },
+            methods: {
+              addStaredCounty: function (siteName) {
+                const vm = this;
+                vm.stared.push(siteName);
+                // 去掉重複關注
+                var newStared = Array.from(new Set(vm.stared));
+                vm.stared = newStared;
+                localStorage.setItem('storageSiteName', JSON.stringify(vm.stared));
+                console.log(vm.stared)
+              },
+              removeStaredCounty: function (siteName) {
+                const vm = this;
+                vm.stared.splice(vm.stared.indexOf(siteName), 1);
+                localStorage.setItem("storageSiteName", JSON.stringify(vm.stared));
+              }
+            },
+            computed: {
+              filterData() {
+                const vm = this;
+                var filterArr = [];
+                if (vm.selectedCity == '') {
+                  return vm.data
+                } else {
+                  return vm.data.filter(item => {
+                    if (item.County == vm.selectedCity) {
+                      filterArr.push(item);
+                      return filterArr;
+                    }
+                  });
+                };
+              },
+              storageCounty() {
+                const vm = this;
+                var filterArr = [];
+
+                if (vm.stared !== []) {
+                  for (var i = 0; i < vm.stared.length; i++) {
+                    vm.data.filter(item => {
+                      if (item.SiteName == vm.stared[i]) {
+                        filterArr.push(item);
+                      }
+                    })
+                  }
+                }
+                return filterArr;
+              }
+            },
+            created() {
+              const vm = this;
+              const api = 'http://opendata2.epa.gov.tw/AQI.json';
+
+              // 使用 jQuery ajax
+              $.get(api).then(function (response) {
+                vm.data = response;
+                console.log(response)
+
+                const newData = new Set();
+                response.forEach(item => {
+                  newData.add(item.County)
+                });
+                vm.location = Array.from(newData)
+
+              });
+            },
+          });
+        </script>
+        <!-- 
+        狀態對應表
+        '良好',
+        'status-aqi2' '普通',
+        'status-aqi3' '對敏感族群不健康',
+        'status-aqi4' '對所有族群不健康',
+        'status-aqi5' '非常不健康',
+        'status-aqi6' '危害'
+        -->
+        <style>
+          .status-aqi2 {
+            background-color: #ffff00;
+          }
+
+          .status-aqi3 {
+            background-color: #ff7e00;
+          }
+
+          .status-aqi4 {
+            background-color: #ff0000;
+          }
+
+          .status-aqi5 {
+            background-color: #8f3f97;
+          }
+
+          .status-aqi6 {
+            background-color: #7e0023;
+          }
+        </style>
+
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
